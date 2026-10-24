@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Успеваемость - Crpted</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <header>
+        <div class="header-container">
+            <h1><a href="/home">Crpted</a></h1>
+            <nav class="top-nav">
+                <a href="/lessons"><i class="fas fa-book"></i> Уроки</a>
+                <a href="/tests"><i class="fas fa-tasks"></i> Тесты</a>
+                <a href="/dashboard"><i class="fas fa-chart-line"></i> Успеваемость</a>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="progress-section">
+            <h2><i class="fas fa-trophy"></i> Ваша успеваемость</h2>
+            
+            <div class="progress-grid">
+                <!-- Основная статистика -->
+                <div class="progress-card main-stats">
+                    <h3>Общий прогресс</h3>
+                    <div class="progress-circle">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring-circle" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                            <text x="50%" y="50%" class="progress-text">0%</text>
+                        </svg>
+                    </div>
+                    <div class="stats-details">
+                        <p>Пройдено <span id="completed-lessons">0</span> из <span id="total-lessons">0</span> уроков</p>
+                        <p>Пройдено <span id="completed-tests">0</span> из <span id="total-tests">0</span> тестов</p>
+                    </div>
+                </div>
+
+                <!-- Детализированная статистика -->
+                <div class="progress-card">
+                    <h3><i class="fas fa-check-circle"></i> Пройденные тесты</h3>
+                    <div id="passed-tests-list" class="test-list"></div>
+                </div>
+
+                <div class="progress-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Незавершенные тесты</h3>
+                    <div id="incomplete-tests-list" class="test-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Графики прогресса -->
+        <section class="charts-section">
+            <h2><i class="fas fa-chart-bar"></i> График прогресса</h2>
+            <div class="chart-container">
+                <canvas id="progressChart" width="400" height="200"></canvas>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

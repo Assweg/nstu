@@ -1,0 +1,3 @@
+./main3 --file set1.txt --query "UNION set2.txt" - обьединение 
+./main3 --file set1.txt --query "INTERSECTION set2.txt" - пересечение 
+./main3 --file set1.txt --query "DIFFERENCE set2.txt" - разность

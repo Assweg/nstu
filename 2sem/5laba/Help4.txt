@@ -1,0 +1,7 @@
+FRIENDS Nikita Bob
+FRIENDS Nikita Charlie
+COUNT Nikita
+QUESTION Nikita Bob
+QUESTION Bob Charlie
+FRIENDS Bob Charlie
+QUESTION Bob Charlie

@@ -1,0 +1,87 @@
+services:
+  # 1. Веб-сервер
+  webserver:
+    image: nginx:alpine
+    ports:
+      - "80:80"    # HTTP
+      - "443:443"  # HTTPS
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./ssl:/ssl/  # Самоподписанные сертификаты
+    restart: unless-stopped
+    networks:
+      - internal
+
+  # # 2. FTP-сервер (vsftpd)
+  # ftp:
+  #   image: fauria/vsftpd
+  #   container_name: energy_ftp
+  #   ports:
+  #     - "21:21"
+  #     - "30000-30009:30000-30009"
+  #   environment:
+  #     - FTP_USER=ftpuser
+  #     - FTP_PASS=123456
+  #     - FTP_USER_2=ftpuser2
+  #     - FTP_PASS_2=123456
+  #     - PASV_MIN_PORT=30000
+  #     - PASV_MAX_PORT=30009
+  #     - PASV_ADDRESS=10.241.127.203
+  #   volumes:
+  #     - ./ftp/data:/home/vsftpd/ftpuser
+  #     - ./ftp/logs:/var/log/vsftpd
+  #     # - ./ftp/data_restricted:/home/vsftpd/ftpuser2
+  #     - ./ftp/data:/home/vsftpd/ftpuser2
+  #   networks:
+  #     - energy_net
+
+  ftp:
+    image: fauria/vsftpd
+    container_name: energy_ftp
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      - FTP_USER=ftpuser
+      - FTP_PASS=123456
+      - FTP_USER_2=ftpuser2
+      - FTP_PASS_2=123456
+      - PASV_MIN_PORT=30000
+      - PASV_MAX_PORT=30009
+      - PASV_ADDRESS=10.241.127.203
+    volumes:
+      - ./ftp/data:/home/vsftpd/ftpuser
+      - ./ftp/data_restricted:/home/vsftpd/ftpuser2
+      - ./ftp/logs:/var/log/vsftpd
+      - ./ftp/config/user_conf:/etc/vsftpd/vsftpd_user_conf
+      - ./ftp/config/vsftpd.conf:/etc/vsftpd.conf
+    networks:
+      - energy_net
+
+  # 3. SFTP сервер
+  sftp-server:
+    image: atmoz/sftp
+    platform: linux/amd64
+    container_name: sftp_server
+    volumes:
+      - ./sftp-data:/home/sftpuser/upload
+      - ./ssh_config/sshd_config:/etc/ssh/sshd_config
+      - ./ssh_config/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
+      - ./ssh_config/ssh_host_ed25519_key:/etc/ssh/ssh_host_ed25519_key
+      - ./sftp-data-restricted:/home/sftpuser2/upload
+    ports:
+      - "2222:22"
+    command: "sftpuser:123456:1000 sftpuser2:123456:1000:::upload" 
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+
+networks:
+  energy_net:
+    driver: bridge
+    name: energy_ftp_network
+
+  internal:
+    driver: bridge

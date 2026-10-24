@@ -1,0 +1,3 @@
+id,user_id,pair_id,quantity,price,type,status
+1,1,rub_usd,10,70,buy,open
+2,2,rub_usd,5,75,sell,open

@@ -1,0 +1,122 @@
+{
+  "incidents": [
+    {
+      "id": "5",
+      "title": "Выход из строя оборудования",
+      "date": "2025-02-20",
+      "severity": "medium",
+      "description": "Оборудование вышло из строя из-за перегрузки...",
+      "status": "in_progress"
+    },
+    {
+      "id": "6",
+      "title": "Нарушение изоляции",
+      "date": "2025-02-25",
+      "severity": "high",
+      "description": "Обнаружено нарушение изоляции на высоковольтной линии...",
+      "status": "new"
+    },
+    {
+      "id": "7",
+      "title": "Сбой в системе управления",
+      "date": "2025-03-01",
+      "severity": "medium",
+      "description": "Система управления энергосетью временно отключилась...",
+      "status": "resolved"
+    },
+    {
+      "id": "8",
+      "title": "Повреждение кабеля",
+      "date": "2025-03-05",
+      "severity": "low",
+      "description": "Кабель поврежден в результате внешнего воздействия...",
+      "status": "in_progress"
+    },
+    {
+      "id": "9",
+      "title": "Проблемы с подстанцией",
+      "date": "2025-03-10",
+      "severity": "high",
+      "description": "Подстанция не выдает необходимую мощность...",
+      "status": "new"
+    },
+    {
+      "id": "10",
+      "title": "Отключение питания",
+      "date": "2025-03-15",
+      "severity": "medium",
+      "description": "Временное отключение питания в нескольких районах...",
+      "status": "resolved"
+    },
+    {
+      "id": "11",
+      "title": "Повышение нагрузки",
+      "date": "2025-03-20",
+      "severity": "low",
+      "description": "Зафиксировано повышение нагрузки на сети...",
+      "status": "in_progress"
+    },
+    {
+      "id": "12",
+      "title": "Аварийная ситуация",
+      "date": "2025-03-25",
+      "severity": "high",
+      "description": "Аварийная ситуация на электростанции...",
+      "status": "new"
+    },
+    {
+      "id": "13",
+      "title": "Проверка оборудования",
+      "date": "2025-04-01",
+      "severity": "medium",
+      "description": "Плановая проверка оборудования завершена...",
+      "status": "resolved"
+    },
+    {
+      "id": "9e79",
+      "title": "Отключение линии электропередач",
+      "date": "2025-04-17",
+      "severity": "medium",
+      "description": "В ближайшее время исправить",
+      "status": "new"
+    },
+    {
+      "id": "a0fe",
+      "title": "Высокое напряжение во всей системе",
+      "date": "2025-04-28",
+      "severity": "high",
+      "description": "Решить немедленно!",
+      "status": "new"
+    },
+    {
+      "id": "1eff",
+      "title": "Че то случилось",
+      "date": "2025-04-28",
+      "severity": "low",
+      "description": "да вроде все ок",
+      "status": "in_progress"
+    },
+    {
+      "id": "4819",
+      "title": "ы",
+      "date": "2025-04-17",
+      "severity": "low",
+      "description": "ы",
+      "status": "new"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "user",
+      "role": "user"
+    }
+  ]
+}

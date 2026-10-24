@@ -1,0 +1,4 @@
+# Секреты шифрования ЛР3 — только локально / в Docker volume
+secrets/
+
+.DS_Store

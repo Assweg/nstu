@@ -1,0 +1,36 @@
+{
+    "columns": [
+        "id",
+        "base_lot",
+        "quote_lot"
+    ],
+    "name": "pair",
+    "primary_key": "",
+    "rows": [
+        [
+            "0",
+            "RUB",
+            "USD"
+        ],
+        [
+            "1",
+            "BTC",
+            "USD"
+        ],
+        [
+            "2",
+            "ETH",
+            "USD"
+        ],
+        [
+            "3",
+            "USDT",
+            "USD"
+        ],
+        [
+            "4",
+            "USDC",
+            "USD"
+        ]
+    ]
+}

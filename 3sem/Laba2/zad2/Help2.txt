@@ -1,0 +1,3 @@
+./main2 --file data.txt --query "SETADD ..."
+./main2 --file data.txt --query "SETDEL ..."
+./main2 --file data.txt --query "SET_AT ..."
