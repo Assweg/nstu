@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "cd03b4c4-7d3a-41e6-a593-a14d3d0a04d8",
+		"name": "exchange-crypto",
+		"description": "# 🛠️ Exchange Crypto API Project\n\n## 📋 **Описание**\n\nЭтот проект предоставляет коллекцию API-запросов для управления криптовалютным обменом. Включает базовые CRUD-операции, примеры тестов, а также инструкции по использованию переменных для упрощения настройки запросов.\n\n## 🚀 **Функциональные возможности**\n\n1. **Создание пользователей и заказов:**\n    \n    - **POST /user**: Добавление нового пользователя.\n        \n    - **POST /order**: Создание нового ордера (купли/продажи).\n        \n2. **Получение данных:**\n    \n    - **GET /order**: Получение списка ордеров.\n        \n    - **GET /balance**: Проверка баланса пользователя.\n        \n    - **GET /pair**: Получение информации о доступных парах криптовалют.\n        \n3. **Удаление данных:**\n    \n    - **DELETE /order**: Удаление существующего ордера.\n        \n\n## 📚 **Как использовать**\n\n1. Отправьте запросы (GET, POST, DELETE), чтобы проверить работу API.\n    \n2. Измените тело запросов (Body) для отправки новых данных.\n    \n3. Настройте переменные, такие как `base_url` и `id`, для быстрого тестирования различных сценариев.\n    \n4. Используйте вкладку **Tests**, чтобы добавлять автоматизированные проверки в JavaScript.\n    \n\n## 🔧 **Дополнительные возможности**\n\n- Тестовые сценарии проверяют успешность выполнения запросов (статусы 200, 201 и др.).\n    \n- Встроенные переменные упрощают модификацию базового URL.\n    \n- Примеры DELETE запросов показывают, как работать с идентификаторами объектов.\n    \n\n## 💡 **Примеры запросов**\n\n### **POST /order** (создание ордера)\n\n``` json\n{\n  \"pair_id\": 1,\n  \"quantity\": 100,\n  \"price\": 10,\n  \"type\": \"sell\"\n}\n\n ```\n\n### **DELETE /order** (удаление ордера)\n\n``` json\n{\n  \"order_id\": 9\n}\n\n ```\n\n---\n\nКоллекция API идеально подходит для тестирования криптовалютных операций и демонстрации базовых RESTful операций.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20480344"
+	},
+	"item": [
+		{
+			"name": "POST user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"username\": \"johnDoe1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost/user",
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "ORDERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-USER-KEY",
+						"value": "834022ad-2652-44cf-87b7-eecbbc072dd0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pair_id\": 1,\n    \"quantity\": 100,\n    \"price\": 10,\n    \"type\": \"sell\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost/order",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "POST seller",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-USER-KEY",
+								"value": "7cc994de-e673-4d25-875d-5ac197e0643e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pair_id\": 16,\n    \"quantity\": 100,                                            \n    \"price\": 10,\n    \"type\": \"sell\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost/order"
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "POST buyer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-USER-KEY",
+								"value": "75b5de1e-9cba-4e87-befb-b02d7c25cf77",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pair_id\": 16,\n    \"quantity\": 100,\n    \"price\": 10,\n    \"type\": \"buy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost/order"
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "DELETE order",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-USER-KEY",
+								"value": "8036fd4c01d416450d0c819c4370fb54",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"order_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost/order"
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "GET balance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-USER-KEY",
+						"value": "28cc22e8-cd30-4802-b8cf-32d870d5e7fc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "X-USER-KEY",
+							"value": "834022ad-2652-44cf-87b7-eecbbc072dd0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/order"
+			},
+			"response": []
+		},
+		{
+			"name": "GET lots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/lot"
+			},
+			"response": []
+		},
+		{
+			"name": "GET pairs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/pair"
+			},
+			"response": []
+		},
+		{
+			"name": "GET all orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/allorder"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+    "columns": [
+        "user_id",
+        "lot_id",
+        "quantity"
+    ],
+    "name": "user_lot",
+    "primary_key": "",
+    "rows": [
+        [
+            "0",
+            "1",
+            "1000"
+        ],
+        [
+            "1",
+            "1",
+            "2000"
+        ]
+    ]
+}

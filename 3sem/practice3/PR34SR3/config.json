@@ -1,0 +1,26 @@
+{
+    "columns": [
+        "setting",
+        "value"
+    ],
+    "name": "config",
+    "primary_key": "",
+    "rows": [
+        [
+            "0",
+            "RUB",
+            "BTC",
+            "ETH",
+            "USDT",
+            "USDC"
+        ],
+        [
+            "1",
+            "localhost"
+        ],
+        [
+            "2",
+            "7432"
+        ]
+    ]
+}

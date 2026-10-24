@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест - Crpted</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .question-box {
+            background: #1a9953;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 12px;
+            background: #1e6ede;
+            border-radius: 6px;
+            border: 1px solid #dddddd;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background: #f1f1f1;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .save-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background: #218838;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .test-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .test-controls .btn {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><a href="/home">Crpted</a></h1>
+            <nav class="top-nav">
+                <a href="/lessons"><i class="fas fa-book"></i> Уроки</a>
+                <a href="/tests"><i class="fas fa-tasks"></i> Тесты</a>
+                <a href="/progress"><i class="fas fa-chart-line"></i> Успеваемость</a>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="test-content">
+            <h2 id="test-title"></h2>
+            <div id="question-content" class="question-box"></div>
+            <div class="test-controls">
+                <button id="prev-question" class="btn"><i class="fas fa-arrow-left"></i> Назад</button>
+                <button id="finish-test" class="btn btn-danger" style="display:none;">
+                    <i class="fas fa-flag-checkered"></i> Завершить тест
+                </button>
+                <button id="next-question" class="btn">Далее <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/test.js"></script>
+</body>
+</html>

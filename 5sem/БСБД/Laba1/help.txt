@@ -1,0 +1,119 @@
+
+СИСТЕМНЫЕ РОЛИ (без логина)
+
+ app_owner - Владелец приложения
+- Доступ: Полный доступ ко всем схемам (app, ref, stg)
+- Права: ALL на все таблицы, последовательности, функции
+- Назначение: Владеет всеми объектами БД
+
+ app_reader - Читатель бизнес-данных
+- Доступ: Только чтение схем app, ref
+- Права: SELECT на все таблицы
+- Ограничения: 
+  - НЕ видит `salary_amount` и `terms` в contracts
+  - Доступ только через RLS политики
+
+ app_writer - Писатель бизнес-данных
+- Доступ: Чтение и запись схем app, ref
+- Права: SELECT, INSERT, UPDATE на все таблицы
+- Ограничения: 
+  - НЕ может DELETE (запрещено)
+  - Доступ только через RLS политики
+
+ auditor - Аудитор
+- Доступ: Только чтение схемы audit
+- Права: SELECT на таблицы логов
+- Ограничения: НЕ может читать бизнес-данные
+
+ ddl_admin - Администратор DDL
+- Доступ: Все схемы (app, ref, audit, stg)
+- Права: CREATE, ALTER, DROP объектов
+- Назначение: Изменение структуры БД
+
+ dml_admin - Администратор DML
+- Доступ: Все схемы
+- Права: Массовые операции INSERT/UPDATE/DELETE
+- Назначение: Массовые изменения данных
+
+ security_admin - Администратор безопасности
+- Доступ: Все схемы
+- Права: Управление RLS, политиками, шифрованием
+- Назначение: Настройка безопасности
+
+ПОЛЬЗОВАТЕЛИ (с логином)
+
+ studio_manager (manager_pass123)
+- Роли: app_writer
+- Доступ: 
+  - Чтение/запись в app, ref
+  - Просмотр проектов своей студии (RLS)
+  - Работа с контрактами и сессиями
+  - НЕ может удалять записи
+  - НЕ может читать audit логи
+
+ voice_actor (actor_pass123)
+- Роли: app_reader
+- Доступ:
+  - Чтение в app, ref
+  - Только свои контракты (RLS)
+  - Только свои сессии записи
+  - Безопасный просмотр зарплат через функцию
+  - НЕ видит чужие данные
+  - НЕ видит salary_amount напрямую
+
+ security_auditor (auditor_pass123)
+- Роли: auditor
+- Доступ:
+  - Чтение audit логов
+  - Просмотр login_log
+  - Просмотр data_access_log
+  - НЕ может читать бизнес-данные
+  - НЕ может изменять логи
+
+ db_developer (dev_pass123)
+- Роли: ddl_admin
+- Доступ:
+  - Полный доступ ко всем схемам
+  - Изменение структуры БД
+  - Создание/изменение таблиц
+  - Управление индексами
+
+RLS ПОЛИТИКИ (Row Level Security)
+
+ actors - Актёры
+- Политика: `actor_self_select`
+- Правило: Актёры видят только свою запись
+- Условие: `actor_id = current_setting('app.current_actor_id')`
+
+ contracts - Контракты
+- Политика: `actor_own_contracts`
+- Правило: Актёры видят только свои контракты
+- Условие: `actor_id = current_setting('app.current_actor_id')`
+
+ recording_sessions - Сессии записи
+- Политика: `actor_own_sessions`
+- Правило: Актёры видят только свои сессии
+- Условие: Через JOIN к contracts
+
+ projects - Проекты
+- Политика: `studio_own_projects`
+- Правило: Менеджеры видят проекты своей студии
+- Условие: `studio_id = get_current_user_studio()`
+
+ ОГРАНИЧЕНИЯ ДОСТУПА
+
+ Чувствительные данные:
+- `actors.passport_data` - только app_owner, db_developer
+- `actors.tax_id` - только app_owner, db_developer
+- `contracts.salary_amount` - скрыт от app_reader
+- `contracts.terms` - скрыт от app_reader
+- `studios.bank_details` - только app_owner, db_developer
+
+ Аудит:
+- `audit.login_log` - только auditor, security_auditor
+- `audit.data_access_log` - только auditor, security_auditor
+- Запись в audit - только через триггеры
+
+ PUBLIC доступ:
+- Полностью запрещён ко всем схемам
+- REVOKE ALL ON SCHEMA ... FROM PUBLIC

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crpted</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Подключение Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="header-container">
+            <!-- Логотип слева -->
+            <h1><a href="/home">Crpted</a></h1>
+    
+            <!-- Вкладки справа -->
+            <nav class="top-nav">
+                <a href="/lessons" class="nav-item">Уроки</a>
+                <a href="/tests" class="nav-item">Тесты</a>
+                <a href="/progress" class="nav-item">Успеваемость</a>
+                <a href="/logout" class="nav-item">Выйти</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный баннер -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Изучение математических основ криптографии</h2>
+                <p>Начните с уроков и закрепляйте знания с помощью тестов</p>
+                <div class="buttons">
+                    <a href="/lessons" class="btn"><i class="fas fa-book"></i> Начать обучение</a>
+                    <a href="/tests" class="btn secondary"><i class="fas fa-tasks"></i> Пройти тест</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок с преимуществами -->
+        <section class="features">
+            <h2>Возможности Crpted</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Интерактивные уроки</h3>
+                    <p>Учитесь на практике с помощью интерактивных заданий</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Тесты и проверка знаний</h3>
+                    <p>Проверяйте свои знания с помощью тестов после каждого задания</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Следите за своим прогрессом и улучшайте результаты</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные уроки -->
+        <section class="popular-lessons">
+            <h2>Популярные уроки</h2>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <h3>Основы теории чисел в криптографии</h3>
+                    <p>Изучение простых чисел, модульной арифметики и функций вроде Эйлера, которые лежат в основе RSA, Диффи-Хеллмана и других криптосистем</p>
+                    <a href="/lessons?id=1" class="btn">Начать</a>
+                </div>
+                <div class="lesson-card">
+                    <h3>Криптосистемы с открытым ключом</h3>
+                    <p>Шифрование и аутентификация с использованием двух ключей (открытого и закрытого): RSA, Эль-Гамаль, ECC и обмен ключами по Диффи-Хеллману</p>
+                    <a href="/lessons?id=3" class="btn">Начать</a>
+                </div>
+                <div class="lesson-card">
+                    <h3>Симметричные криптосистемы и их математические основы</h3>
+                    <p>Шифрование с одним ключом: блочные (AES, DES) и поточные шифры, их алгебраические структуры и методы криптоанализа.</p>
+                    <a href="/lessons?id=6" class="btn">Начать</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    </script>
+</body>
+</html>

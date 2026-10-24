@@ -1,0 +1,27 @@
+{
+    "columns": [
+        "id",
+        "username",
+        "key",
+        "balance",
+        "status"
+    ],
+    "name": "user",
+    "primary_key": "",
+    "rows": [
+        [
+            "0",
+            "user1",
+            "key1",
+            "1000",
+            "active"
+        ],
+        [
+            "1",
+            "user2",
+            "key2",
+            "2000",
+            "active"
+        ]
+    ]
+}

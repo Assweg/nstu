@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мониторинг Энергообъектов</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a3d62;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1e90ff;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #0a3d62;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e9f0f9;
+    }
+
+    footer {
+      background-color: #0a3d62;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Система Мониторинга Энергообъектов</h1>
+</header>
+
+<nav>
+  <a href="#dashboard">Панель управления</a>
+  <a href="#stations">Энергообъекты</a>
+  <a href="#docs">Документация</a>
+</nav>
+
+<div class="container">
+
+  <section id="dashboard">
+    <h2>Панель управления</h2>
+    <p>Информация в режиме реального времени:</p>
+    <ul>
+      <li>Статус подстанций</li>
+      <li>Напряжение, ток, мощность по участкам</li>
+      <li>События и аварии за последние сутки</li>
+      <li>Оповещения от датчиков</li>
+    </ul>
+  </section>
+
+  <section id="stations">
+    <h2>Энергообъекты</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Регион</th>
+          <th>Статус</th>
+          <th>Последнее обновление</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ТЭЦ-2</td>
+          <td>Ленинский район</td>
+          <td style="color: green;">В работе</td>
+          <td>2025-04-05 14:30</td>
+        </tr>
+        <tr>
+          <td>ТЭЦ-4</td>
+          <td>Калининский район</td>
+          <td style="color: orange;">Обслуживание</td>
+          <td>2025-04-05 12:15</td>
+        </tr>
+        <tr>
+          <td>Новосибирская ГЭС</td>
+          <td>Советский район</td>
+          <td style="color: red;">Неисправность</td>
+          <td>2025-04-05 10:45</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="docs">
+    <h2>Документация</h2>
+    <p>Инструкции и руководства:</p>
+    <ul>
+      <li><a href="#">Инструкция по работе с системой мониторинга</a></li>
+      <li><a href="#">Правила техники безопасности</a></li>
+      <li><a href="#">Журнал инцидентов (скачать)</a></li>
+      <li><a href="#">Формы отчётов</a></li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

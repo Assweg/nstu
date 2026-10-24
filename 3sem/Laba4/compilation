@@ -1,0 +1,8 @@
+1 задание:
+g++ -std=c++17 main1.cpp -o main1 -pthread
+
+2 задание:
+g++ -std=c++11 -pthread -o main2 main2.cpp 
+
+3 задание:
+g++ main3.cpp -o main3

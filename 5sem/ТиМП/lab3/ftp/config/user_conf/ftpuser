@@ -1,0 +1,6 @@
+write_enable=YES
+anon_world_readable_only=NO
+download_enable=YES
+upload_enable=YES
+mkdir_write_enable=YES
+delete_write_enable=YES
