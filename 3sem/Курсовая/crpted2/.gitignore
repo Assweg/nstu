@@ -1,5 +1,0 @@
-.env
-*.tar
-*.zip
-*.log
-.DS_Store
